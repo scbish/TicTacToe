@@ -1,7 +1,7 @@
-import java.awt.*;
+import java.awt.Graphics;
 
 
-public class Runner {
+public class RandomGame {
 
 	public static final int SIZE = 300;
 	public static final int LENGTH = 3;
@@ -86,6 +86,30 @@ public class Runner {
 				}
 				flag = true;
 			}
+		}
+
+		for (int player = 0; player < 2; player++){
+			for (int i = 0; i < LENGTH; i++){
+				if (squares[i][i] != (player * 2) - 1){
+					flag = false;
+				}
+			}
+			if (flag){
+				return flag;
+			}
+			flag = true;
+		}
+		
+		for (int player = 0; player < 2; player++){
+			for (int i = 0; i < LENGTH; i++){
+				if (squares[LENGTH - 1 - i][i] != (player * 2) - 1){
+					flag = false;
+				}
+			}
+			if (flag){
+				return flag;
+			}
+			flag = true;
 		}
 
 		return false;
